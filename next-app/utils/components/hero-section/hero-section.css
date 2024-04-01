@@ -1,0 +1,59 @@
+.heroSection {
+  height: calc(100vh - var(--nav-height));
+  width: 100%;
+  background-image: url("../../../public/pics/main.jpg");
+  background-size: contain;
+  background-position: 50%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-family: cursive;
+  padding: auto;
+  margin: auto;
+}
+
+.text {
+  /* display: flex;
+  flex-direction: column;
+  align-items: start; */
+}
+
+.buttons {
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: auto;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+  border: 1.5px solid white;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  font-family: cursive;
+  width: 200px;
+  transition: 300ms ease;
+}
+
+button:hover {
+  transition: 500ms ease;
+  background-color: rgb(143, 0, 0);
+  width: 320px;
+}
+
+h1 {
+  margin: 15px;
+}
+
+p {
+  margin: 15px;
+}
