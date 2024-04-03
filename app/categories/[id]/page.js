@@ -62,9 +62,9 @@
 //   return <div>Speaker {id}</div>;
 // }
 
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
-export default function productPage() {
-  const router = useRouter();
-  return <p>Post: {router.query.slug}</p>;
-}
+// export default function productPage() {
+//   const router = useRouter();
+//   return <p>Post: {router.query.slug}</p>;
+// }
