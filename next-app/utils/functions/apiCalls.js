@@ -16,10 +16,25 @@ const SERVER_URL = "http://localhost:3001";
 //   }
 // };
 
+export async function getProductById(_id) {
+  try {
+    const response = await fetch(`http://localhost:3001/products/${_id}`, {
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
+      },
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
+
 export async function getAllSpeakers() {
   try {
     const response = await fetch(`${SERVER_URL}/products`, {
-      next: { revalidate: 10, tags: ["products"] },
+      // next: { revalidate: 10, tags: ["products"] },
       headers: {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
