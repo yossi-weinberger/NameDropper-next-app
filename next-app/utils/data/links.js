@@ -7,11 +7,11 @@ export const links = [
     title: "Categories",
     href: "/categories",
   },
-  {
-    title: "FrameworksId",
-    href: "/frameworksId",
-    excluded: true,
-  },
+  // {
+  //   title: "FrameworksId",
+  //   href: "/frameworksId",
+  //   excluded: true,
+  // },
   {
     title: "About",
     href: "/about",
@@ -24,9 +24,9 @@ export const links = [
     title: "New product",
     href: "/new-product",
   },
-  {
-    title: "Speakers",
-    href: "/product/:id",
-    excluded: true,
-  },
+  // {
+  //   title: "Speakers",
+  //   href: "/product/:id",
+  //   excluded: true,
+  // },
 ];
