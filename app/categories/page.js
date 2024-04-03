@@ -3,7 +3,7 @@
 // }
 
 // import Navbar from "../components/navbar/navbar";
-"use client";
+// "use client";
 import ProductsGrid from "@/utils/components/productsGrid/productsGrid";
 import { getAllSpeakers } from "@/utils/functions/apiCalls";
 
