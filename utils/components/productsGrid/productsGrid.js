@@ -65,7 +65,7 @@ export default function ProductsGrid({ products }) {
 
 function GridItem({ item }) {
   return item && item._id ? (
-    <Link href={`/product/${item._id}`}>
+    <Link href={`/categories/${item._id}`}>
       <div className="grid-item">
         <img src={item.img} />
         <div>

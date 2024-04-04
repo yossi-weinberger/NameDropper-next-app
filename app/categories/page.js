@@ -6,6 +6,7 @@
 // "use client";
 import ProductsGrid from "@/utils/components/productsGrid/productsGrid";
 import { getAllCategories } from "@/utils/functions/apiCalls";
+import Image from "next/image";
 
 export default async function CategoriesPage() {
   const categories = await getAllCategories();

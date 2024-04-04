@@ -16,7 +16,7 @@ const SERVER_URL = "https://namedropper-express-back.onrender.com";
 //   }
 // };
 
-export async function getProductById(_id) {
+export async function getCategoryById(_id) {
   try {
     const response = await fetch(`${SERVER_URL}/products/${_id}`, {
       headers: {
