@@ -41,6 +41,7 @@ export async function getAllSpeakers() {
       },
     });
     const data = await response.json();
+    console.log(data);
     return data;
   } catch (error) {
     throw new Error(error.message);
@@ -65,6 +66,7 @@ export async function createNewProduct(body) {
     }
 
     const data = await response.json();
+    console.log(response.json());
 
     return { data: [data], status: "success" };
   } catch (error) {
