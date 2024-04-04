@@ -1,6 +1,6 @@
 import axios from "axios";
 const SERVER_URL = "https://namedropper-express-back.onrender.com";
-
+// const SERVER_URL = "http://localhost:3001";
 // OLD VERS
 // export const getAllSpeakers = async () => {
 //   try {
@@ -31,10 +31,10 @@ export async function getProductById(_id) {
   }
 }
 
-export async function getAllSpeakers() {
+export async function getAllCategories() {
   try {
     const response = await fetch(`${SERVER_URL}/products`, {
-      // next: { revalidate: 10, tags: ["products"] },
+      // next: { : 10, tags: ["products"] },
       headers: {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
