@@ -18,7 +18,7 @@ const SERVER_URL = "https://namedropper-express-back.onrender.com";
 
 export async function getCategoryById(_id) {
   try {
-    const response = await fetch(`${SERVER_URL}/products/${_id}`, {
+    const response = await fetch(`${SERVER_URL}/categories/${_id}`, {
       headers: {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
@@ -33,7 +33,7 @@ export async function getCategoryById(_id) {
 
 export async function getAllCategories() {
   try {
-    const response = await fetch(`${SERVER_URL}/products`, {
+    const response = await fetch(`${SERVER_URL}/categories`, {
       // next: { : 10, tags: ["products"] },
       headers: {
         Authorization:
@@ -50,7 +50,7 @@ export async function getAllCategories() {
 
 export async function createNewProduct(body) {
   try {
-    const response = await fetch(`${SERVER_URL}/products`, {
+    const response = await fetch(`${SERVER_URL}/categories`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
