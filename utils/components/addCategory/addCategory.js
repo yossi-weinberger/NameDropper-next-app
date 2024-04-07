@@ -1,12 +1,10 @@
-"use client";
 import { createNewCategory } from "@/utils/functions/apiCalls";
 import "./addCategory.css";
 import SubmitBtn from "../submitBtn/submitBtn";
 
 export default function AddCategoryForm() {
-  const createProduct = async (event) => {
-    event.preventDefault(); ///
-    const formData = new FormData(event.target);
+  const createProduct = async (formData) => {
+    "use server";
     const body = Object.fromEntries(formData);
     console.log("Form data:", body); ///
 
@@ -31,7 +29,7 @@ export default function AddCategoryForm() {
 
   return (
     <div className="form">
-      <form className="form" onSubmit={createProduct}>
+      <form className="form" action={createProduct}>
         <h1>Add new category</h1>
         <input
           className="form_input"

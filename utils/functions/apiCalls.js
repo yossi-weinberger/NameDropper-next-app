@@ -36,6 +36,7 @@ export async function getAllCategories() {
   try {
     const response = await fetch(`${SERVER_URL}/categories`, {
       // next: { : 10, tags: ["categories"] },
+      cache: "no-cache",
       headers: {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
@@ -51,22 +52,24 @@ export async function getAllCategories() {
 
 export async function createNewCategory(categoryData) {
   try {
-    const response = await fetch(`${SERVER_URL}/categories`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
-      },
-      body: JSON.stringify(categoryData),
-    });
-    if (!response.ok) {
+    const response = await axios.post(
+      `${SERVER_URL}/categories`,
+      categoryData,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
+        },
+      }
+    );
+
+    if (response.status !== 200) {
       const message = await response.text();
       throw new Error(message);
     }
-    const data = await response.json();
-    console.log(response.json());
-    return { data: [data], status: "success" };
+
+    return { data: response.data, status: "success" };
   } catch (error) {
     console.error("Error creating new category:", error);
     throw error;
