@@ -5,9 +5,10 @@ import SubmitBtn from "../submitBtn/submitBtn";
 
 export default function AddCategoryForm() {
   const createProduct = async (event) => {
-    // event.preventDefault();
+    event.preventDefault(); ///
     const formData = new FormData(event.target);
     const body = Object.fromEntries(formData);
+    console.log("Form data:", body); ///
 
     // הכן אובייקט תקין לשליחה
     const newCategory = {
@@ -15,8 +16,7 @@ export default function AddCategoryForm() {
       price: body.price,
       img: body.img,
       desc: body.desc,
-      // הנח שהשדה "title" מייצג את שם הקטגוריה
-      // הוסף שדות נוספים אם צריך
+      createdAt: new Date(),
     };
 
     try {
