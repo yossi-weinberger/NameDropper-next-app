@@ -105,6 +105,6 @@ function register(event) {
   var user = {};
   form_data.forEach((key, valeu) => (user[valeu] = key));
   users.push(user);
-  console.log(users);
+  // console.log(users);
   event.target.reset();
 }

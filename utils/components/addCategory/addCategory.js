@@ -6,7 +6,7 @@ export default function AddCategoryForm() {
   const createProduct = async (formData) => {
     "use server";
     const body = Object.fromEntries(formData);
-    console.log("Form data:", body); ///
+    // console.log("Form data:", body); ///
 
     // הכן אובייקט תקין לשליחה
     const newCategory = {
@@ -19,7 +19,7 @@ export default function AddCategoryForm() {
 
     try {
       const response = await createNewCategory(newCategory);
-      console.log(response);
+      // console.log(response);
       // עשה משהו עם התגובה החיובית
     } catch (error) {
       console.error(error);

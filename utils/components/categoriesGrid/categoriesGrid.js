@@ -11,7 +11,7 @@ import { Sort_search } from "@/utils/components/sort-search/sort-search";
 // import { CircularProgress } from "@mui/material";
 
 export default function CategoriesGrid({ categories }) {
-  console.log(categories.data);
+  // console.log(categories.data);
   // State variables for the search input and the sort option
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState(0);
@@ -61,7 +61,7 @@ function GridItem({ item }) {
         <div>
           <h2>{item.title}</h2>
           <p>{item.price}</p>
-          <p>{item.desc}</p>
+          <p className="rtl">{item.desc}</p>
 
           <div className="buy-cart">
             <button>buy</button>
