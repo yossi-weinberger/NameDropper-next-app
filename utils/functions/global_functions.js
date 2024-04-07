@@ -1,4 +1,4 @@
-export function sortProducts(a, b, sortBy) {
+export function sortCategories(a, b, sortBy) {
   switch (sortBy) {
     case 0: {
       if (a.title < b.title) {

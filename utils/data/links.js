@@ -22,7 +22,7 @@ export const links = [
   },
   {
     title: "New product",
-    href: "/new-product",
+    href: "/new-category",
   },
   // {
   //   title: "Speakers",
