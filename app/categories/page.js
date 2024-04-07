@@ -18,6 +18,10 @@ export default async function CategoriesPage() {
   );
 }
 
+
+
+
+
 // const Speakers = ({ speakers }) => {
 //   return (
 //     <div>

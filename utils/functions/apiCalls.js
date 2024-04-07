@@ -43,7 +43,7 @@ export async function getAllCategories() {
       },
     });
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     throw new Error(error.message);
