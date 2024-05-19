@@ -11,7 +11,7 @@ export default function AddCategoryForm() {
     // הכן אובייקט תקין לשליחה
     const newCategory = {
       title: body.title,
-      price: body.price,
+      // price: body.price,
       img: body.img,
       desc: body.desc,
       createdAt: new Date(),
