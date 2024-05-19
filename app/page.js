@@ -6,7 +6,6 @@ export default function Home() {
   return (
     <div className="main">
       <HeroSection />
-      <p className="title">home sweet home</p>
     </div>
   );
 }

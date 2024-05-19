@@ -2,6 +2,7 @@ import { Varela_Round } from "next/font/google";
 import "./globals.css";
 import { NavigateBefore } from "@mui/icons-material";
 import Navbar from "@/utils/components/navbar/navbar";
+import SiteTitle from "@/utils/components/siteTitle/siteTitle";
 
 const varela_Round = Varela_Round({ subsets: ["hebrew"], weight: "400" });
 
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={varela_Round.className}>
+        <SiteTitle />
         <Navbar />
         {children}
       </body>
