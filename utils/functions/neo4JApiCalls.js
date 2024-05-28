@@ -1,5 +1,6 @@
 import Graph from "@/utils/components/neo4j/neo4jTest";
-const SERVER_URL = "https://namedropper-express-back.onrender.com";
+// const SERVER_URL = "https://namedropper-express-back.onrender.com";
+const SERVER_URL = "https://name-dropper-express-back.vercel.app";
 // const SERVER_URL = "http://localhost:3001";
 
 export async function getGraph() {
