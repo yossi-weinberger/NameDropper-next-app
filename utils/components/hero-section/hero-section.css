@@ -1,7 +1,8 @@
 .heroSection {
   height: calc(100vh - var(--nav-height));
   width: 100%;
-  background-image: url("../../../public/pics/main.jpg");
+  /* background-image: url("../../../public/pics/main.jpg"); */
+  background-color: black;
   background-size: contain;
   background-position: 50%;
   display: flex;
