@@ -1,9 +1,14 @@
 .background_title {
     background-color: black;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
 }
 
 .title {
     color: #dbb6b6;
+}
+
+.subtitle {
+    color: #dd9e9e;
+    font-family: Fira Code;
 }
