@@ -64,8 +64,7 @@ function GridItem({ item }) {
           <p className="rtl">{item.desc}</p>
 
           <div className="buy-cart">
-            <button>buy</button>
-            <button>cart</button>
+            <button>לחץ כאן</button>
           </div>
         </div>
       </div>
