@@ -62,11 +62,10 @@ function GridItem({ item }) {
           <h2>{item.name}</h2>
           <p>{item.description}</p>
           {/* <p className="rtl">{item.desc}</p> */}
-          {/* 
-          <div className="buy-cart">
-            <button>buy</button>
-            <button>cart</button>
-          </div> */}
+
+          <div className="read-more">
+            <button>Read-more</button>
+          </div>
         </div>
       </div>
     </Link>
