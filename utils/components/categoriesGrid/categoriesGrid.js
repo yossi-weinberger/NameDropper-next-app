@@ -30,9 +30,9 @@ export default function CategoriesGrid({ categories }) {
   //   .map((product) => <GridItem key={nanoid()} item={product} />); // Map each product to a GridItem component
 
   const categoriesToShow = (categories?.data ?? [])
-    .filter((product) => product?.title?.includes(search))
+    .filter((category) => category?.name?.includes(search))
     .sort((a, b) => sortCategories(a, b, sortBy))
-    .map((product) => <GridItem key={nanoid()} item={product} />);
+    .map((category) => <GridItem key={nanoid()} item={category} />);
   // Render the grid of categories
   return (
     <div className="grid-container">
@@ -57,16 +57,16 @@ function GridItem({ item }) {
   return item && item._id ? (
     <Link href={`/categories/${item._id}`}>
       <div className="grid-item">
-        <img src={item.img} />
+        <img src={item.imageUrl} />
         <div>
-          <h2>{item.title}</h2>
-          <p>{item.price}</p>
-          <p className="rtl">{item.desc}</p>
-
+          <h2>{item.name}</h2>
+          <p>{item.description}</p>
+          {/* <p className="rtl">{item.desc}</p> */}
+          {/* 
           <div className="buy-cart">
             <button>buy</button>
             <button>cart</button>
-          </div>
+          </div> */}
         </div>
       </div>
     </Link>

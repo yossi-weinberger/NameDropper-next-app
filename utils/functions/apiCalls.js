@@ -1,46 +1,16 @@
 import axios from "axios";
+import dotenv from "dotenv";
 // const SERVER_URL = "https://namedropper-express-back.onrender.com";
-const SERVER_URL = "https://name-dropper-express-back.vercel.app";
-// const SERVER_URL = "http://localhost:3001";
+// const SERVER_URL = "https://name-dropper-express-back.vercel.app";
+const SERVER_URL = "http://localhost:3001";
 
-// OLD VERS
-// export const getAllSpeakers = async () => {
-//   try {
-//     const response = await axios.get(`${SERVER_URL}/categories`, {
-//       headers: {
-//         Authorization:
-//           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
-//       },
-//     });
-//     return response.data.data;
-//   } catch (error) {
-//     throw new Error(error);
-//   }
-// };
-
-export async function getCategoryById(_id) {
-  try {
-    const response = await fetch(`${SERVER_URL}/categories/${_id}`, {
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
-      },
-    });
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    throw new Error(error.message);
-  }
-}
-
-export async function getAllCategories() {
+dotenv.config();
+// קבל את כל הקטגוריות
+export async function getCategories() {
   try {
     const response = await fetch(`${SERVER_URL}/categories`, {
-      // next: { : 10, tags: ["categories"] },
-      cache: "no-cache",
       headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
+        Authorization: process.env.BEARER_TOKEN,
       },
     });
     const data = await response.json();
@@ -51,6 +21,102 @@ export async function getAllCategories() {
   }
 }
 
+export async function getValueById(id) {
+  try {
+    const response = await fetch(`${SERVER_URL}/values/${id}`, {
+      headers: {
+        Authorization: process.env.BEARER_TOKEN,
+      },
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
+
+// export async function getValuesBycategoryId(categoryId) {
+//   try {
+//     const response = await fetch(`/api/categories/${categoryName}/values`, {
+//       headers: {
+//         Authorization:
+//           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
+//       },
+//     });
+//     const data = await response.json();
+//     return data.data;
+//   } catch (error) {
+//     throw new Error(error.message);
+//   }
+// }
+
+export async function getValuesByCategoryId(categoryId) {
+  try {
+    const response = await fetch(`${SERVER_URL}/categories/${categoryId}`, {
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
+      },
+    });
+    const data = await response.json();
+    // console.log("Response data:", data);
+    return data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
+
+// export async function getValuesByCategoryName(categoryName) {
+//   console.log(categoryName);
+//   try {
+//     const response = await fetch(`${SERVER_URL}/categories/${categoryName}`, {
+//       headers: {
+// Authorization:
+//   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
+//       },
+//     });
+//     const data = await response.json();
+//     return data.data;
+//   } catch (error) {
+//     throw new Error(error.message);
+//   }
+// }
+
+// קבל תת-קטגוריות עבור קטגוריה ספציפית
+// export async function getSubcategoriesByCategoryId(categoryId) {
+//   try {
+//     const response = await fetch(`${SERVER_URL}/categories/${categoryId}`, {
+//       headers: {
+//         Authorization:
+//           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
+//       },
+//     });
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     throw new Error(error.message);
+//   }
+// }
+
+// קבל פריט ספציפי לפי תת-קטגוריה ומזהה פריט
+// export async function getItemBycategoryAndId(categoryId, itemId) {
+//   try {
+//     const response = await fetch(
+//       `${SERVER_URL}/categories/${categoryId}/${itemId}`,
+//       {
+//         headers: {
+//           Authorization: process.env.BEARER_TOKEN,
+//         },
+//       }
+//     );
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     throw new Error(error.message);
+//   }
+// }
+
+// יצירת קטגוריה חדשה
 export async function createNewCategory(categoryData) {
   try {
     const response = await axios.post(
@@ -59,53 +125,91 @@ export async function createNewCategory(categoryData) {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
+          Authorization: process.env.BEARER_TOKEN,
         },
       }
     );
-
     if (response.status !== 200) {
       const message = await response.text();
       throw new Error(message);
     }
-
     return { data: response.data, status: "success" };
   } catch (error) {
     console.error("Error creating new category:", error);
     throw error;
   }
 }
-//OLD VERSION
-// export async function createNewCategory(body) {
+
+// export async function getCategoryById(_id) {
 //   try {
-//     const response = await axios.post(`${SERVER_URL}/categories`, body, {
+//     const response = await fetch(`${SERVER_URL}/categories/${_id}`, {
 //       headers: {
 //         Authorization:
 //           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
 //       },
 //     });
-//     return response.data;
+//     const data = await response.json();
+//     return data;
 //   } catch (error) {
-//     throw new Error(error);
+//     throw new Error(error.message);
 //   }
 // }
 
-//FROM NETEF- NEED TO MODIFY
-// export async function login(body) {
+export async function getAllCategories() {
+  try {
+    const response = await fetch(`${SERVER_URL}/categories`, {
+      // next: { : 10, tags: ["categories"] },
+      cache: "no-cache",
+      headers: {
+        Authorization: process.env.BEARER_TOKEN,
+      },
+    });
+    const data = await response.json();
+    // console.log(data);
+    return data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
+export async function getAllValues() {
+  try {
+    const response = await fetch(`${SERVER_URL}/values`, {
+      // next: { : 10, tags: ["categories"] },
+      cache: "no-cache",
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
+      },
+    });
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
+// export async function createNewCategory(categoryData) {
 //   try {
-//     const response = await axios.post(`${SERVER_URL}/users/login`, body);
-//     return response.data;
-//   } catch (error) {
-//     throw new Error(error);
-//   }
-// }
+//     const response = await axios.post(
+//       `${SERVER_URL}/categories`,
+//       categoryData,
+//       {
+//         headers: {
+//           "Content-Type": "application/json",
+//           Authorization:
+//             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
+//         },
+//       }
+//     );
 
-// export async function register(body) {
-//   try {
-//     const response = await axios.post(`${SERVER_URL}/users/register`, body);
-//     return response.data;
+//     if (response.status !== 200) {
+//       const message = await response.text();
+//       throw new Error(message);
+//     }
+
+//     return { data: response.data, status: "success" };
 //   } catch (error) {
-//     throw new Error(error);
+//     console.error("Error creating new category:", error);
+//     throw error;
 //   }
 // }

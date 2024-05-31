@@ -9,8 +9,8 @@ export function Sort_search({ sortBy, setSortBy, setSearch }) {
       >
         <option value={0}>abc</option>
         <option value={1}>cba</option>
-        <option value={2}>price from cheap</option>
-        <option value={3}>price from high</option>
+        {/* <option value={2}>price from cheap</option> */}
+        {/* <option value={3}>price from high</option> */}
       </select>
       <input
         className="toolbar-element input"
