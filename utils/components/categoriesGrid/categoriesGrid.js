@@ -63,6 +63,7 @@ function GridItem({ item }) {
           <p>{item.description}</p>
           {/* <p className="rtl">{item.desc}</p> */}
 
+
           <div className="read-more">
             <button>Read-more</button>
           </div>

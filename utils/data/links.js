@@ -4,7 +4,7 @@ export const links = [
     href: "/",
   },
   {
-    title: "Categories",
+    title: "Domains",
     href: "/categories",
   },
   // {
