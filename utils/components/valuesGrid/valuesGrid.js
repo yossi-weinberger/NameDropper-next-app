@@ -11,10 +11,12 @@ export default function ValuesGrid({ values }) {
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState(0);
 
-  const ValuesToShow = (values ?? [])
-    .filter((value) => value?.name?.includes(search))
-    .sort((a, b) => sortCategories(a, b, sortBy))
-    .map((value) => <GridItem key={nanoid()} item={value} />);
+  const ValuesToShow = Array.isArray(values)
+    ? values
+        .filter((value) => value?.name?.includes(search))
+        .sort((a, b) => sortCategories(a, b, sortBy))
+        .map((value) => <GridItem key={nanoid()} item={value} />)
+    : [];
 
   return (
     <div className="grid-container">
