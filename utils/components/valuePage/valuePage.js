@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 export default function ValuesPage({ value }) {
-  // console.log(JSON.stringify(value));
+  console.log(JSON.stringify(value));
 
   return (
     <div className="column center">
@@ -13,9 +13,11 @@ export default function ValuesPage({ value }) {
         alt={value.name}
       />
       <div className="column rtl">
-        <h1>{value.content.background.shortDescription}</h1>
+        <h1>{value.name}</h1>
+        <h1>{value.description}</h1>
+        {/* <h1>{value.content.background.shortDescription}</h1>
         <p>{value.content.background.longDescription}</p>
-        <p>{value.content.syntax}</p>
+        <p>{value.content.syntax}</p> */}
       </div>
     </div>
   );

@@ -1,3 +1,97 @@
+// import axios from "axios";
+// import dotenv from "dotenv";
+
+// const SERVER_URL = "https://name-dropper-express-back.vercel.app";
+
+// dotenv.config();
+
+// export async function getAllCategories() {
+//   try {
+//     const response = await fetch(`${SERVER_URL}/categories`, {
+//       cache: "no-cache",
+//       headers: {
+//         Authorization: process.env.BEARER_TOKEN,
+//       },
+//     });
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     console.error("Error in getAllCategories:", error);
+//     throw new Error(error.message);
+//   }
+// }
+
+// export async function getValuesByCategoryId(categoryId) {
+//   try {
+//     const response = await fetch(`${SERVER_URL}/categories/${categoryId}`, {
+//       headers: {
+//         Authorization: process.env.BEARER_TOKEN,
+//       },
+//     });
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     console.error("Error in getValuesByCategoryId:", error);
+//     throw new Error(error.message);
+//   }
+// }
+
+// export async function getValueById(id) {
+//   try {
+//     const response = await fetch(`${SERVER_URL}/values/${id}`, {
+//       headers: {
+//         Authorization: process.env.BEARER_TOKEN,
+//       },
+//     });
+//     const data = await response.json();
+//     console.log("Response data from getValueById:", data);
+//     return data;
+//   } catch (error) {
+//     console.error("Error in getValueById:", error);
+//     throw new Error(error.message);
+//   }
+// }
+
+// export async function getAllValues() {
+//   try {
+//     const response = await fetch(`${SERVER_URL}/values`, {
+//       cache: "no-cache",
+//       headers: {
+//         Authorization: process.env.BEARER_TOKEN,
+//       },
+//     });
+//     const data = await response.json();
+//     console.log(data);
+//     return data;
+//   } catch (error) {
+//     console.error("Error in getAllValues:", error);
+//     throw new Error(error.message);
+//   }
+// }
+
+// export async function createNewCategory(categoryData) {
+//   try {
+//     const response = await axios.post(
+//       `${SERVER_URL}/categories`,
+//       categoryData,
+//       {
+//         headers: {
+//           "Content-Type": "application/json",
+//           Authorization: process.env.BEARER_TOKEN,
+//         },
+//       }
+//     );
+//     if (response.status !== 200) {
+//       const message = await response.text();
+//       throw new Error(message);
+//     }
+//     return { data: response.data, status: "success" };
+//   } catch (error) {
+//     console.error("Error creating new category:", error);
+//     throw error;
+//   }
+// }
+
 import axios from "axios";
 import dotenv from "dotenv";
 // const SERVER_URL = "https://namedropper-express-back.onrender.com";
@@ -46,6 +140,7 @@ export async function getValueById(id) {
       },
     });
     const data = await response.json();
+    console.log("Response data from getValueById:", data);
     return data;
   } catch (error) {
     throw new Error(error.message);
@@ -63,7 +158,7 @@ export async function getAllValues() {
       },
     });
     const data = await response.json();
-    console.log(data);
+    console.log("data1:", data);
     return data;
   } catch (error) {
     throw new Error(error.message);
