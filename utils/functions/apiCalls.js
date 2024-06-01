@@ -139,13 +139,40 @@ export async function getValueById(id) {
         Authorization: process.env.BEARER_TOKEN,
       },
     });
+
+    // בדיקת סטטוס התגובה
+    if (!response.ok) {
+      throw new Error(`Server error: ${response.status}`);
+    }
+
+    // ניסיון לפענח את התגובה כ-JSON
     const data = await response.json();
-    console.log("Response data from getValueById:", data);
+    console.log(
+      "Response data from getValueById:",
+      JSON.stringify(data, null, 2)
+    );
+
     return data;
   } catch (error) {
+    console.error("Failed to fetch or parse JSON:", error.message);
     throw new Error(error.message);
   }
 }
+
+// export async function getValueById(id) {
+//   try {
+//     const response = await fetch(`${SERVER_URL}/values/${id}`, {
+//       headers: {
+//         Authorization: process.env.BEARER_TOKEN,
+//       },
+//     });
+//     const data = await response.json();
+//     console.log("Response data from getValueById:", data);
+//     return data;
+//   } catch (error) {
+//     throw new Error(error.message);
+//   }
+// }
 
 export async function getAllValues() {
   try {
