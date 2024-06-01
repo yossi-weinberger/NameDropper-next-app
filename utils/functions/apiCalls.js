@@ -1,41 +1,190 @@
+// import axios from "axios";
+// import dotenv from "dotenv";
+
+// const SERVER_URL = "https://name-dropper-express-back.vercel.app";
+
+// dotenv.config();
+
+// export async function getAllCategories() {
+//   try {
+//     const response = await fetch(`${SERVER_URL}/categories`, {
+//       cache: "no-cache",
+//       headers: {
+//         Authorization: process.env.BEARER_TOKEN,
+//       },
+//     });
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     console.error("Error in getAllCategories:", error);
+//     throw new Error(error.message);
+//   }
+// }
+
+// export async function getValuesByCategoryId(categoryId) {
+//   try {
+//     const response = await fetch(`${SERVER_URL}/categories/${categoryId}`, {
+//       headers: {
+//         Authorization: process.env.BEARER_TOKEN,
+//       },
+//     });
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     console.error("Error in getValuesByCategoryId:", error);
+//     throw new Error(error.message);
+//   }
+// }
+
+// export async function getValueById(id) {
+//   try {
+//     const response = await fetch(`${SERVER_URL}/values/${id}`, {
+//       headers: {
+//         Authorization: process.env.BEARER_TOKEN,
+//       },
+//     });
+//     const data = await response.json();
+//     console.log("Response data from getValueById:", data);
+//     return data;
+//   } catch (error) {
+//     console.error("Error in getValueById:", error);
+//     throw new Error(error.message);
+//   }
+// }
+
+// export async function getAllValues() {
+//   try {
+//     const response = await fetch(`${SERVER_URL}/values`, {
+//       cache: "no-cache",
+//       headers: {
+//         Authorization: process.env.BEARER_TOKEN,
+//       },
+//     });
+//     const data = await response.json();
+//     console.log(data);
+//     return data;
+//   } catch (error) {
+//     console.error("Error in getAllValues:", error);
+//     throw new Error(error.message);
+//   }
+// }
+
+// export async function createNewCategory(categoryData) {
+//   try {
+//     const response = await axios.post(
+//       `${SERVER_URL}/categories`,
+//       categoryData,
+//       {
+//         headers: {
+//           "Content-Type": "application/json",
+//           Authorization: process.env.BEARER_TOKEN,
+//         },
+//       }
+//     );
+//     if (response.status !== 200) {
+//       const message = await response.text();
+//       throw new Error(message);
+//     }
+//     return { data: response.data, status: "success" };
+//   } catch (error) {
+//     console.error("Error creating new category:", error);
+//     throw error;
+//   }
+// }
+
 import axios from "axios";
+import dotenv from "dotenv";
 // const SERVER_URL = "https://namedropper-express-back.onrender.com";
 const SERVER_URL = "https://name-dropper-express-back.vercel.app";
 // const SERVER_URL = "http://localhost:3001";
 
-// OLD VERS
-// export const getAllSpeakers = async () => {
-//   try {
-//     const response = await axios.get(`${SERVER_URL}/categories`, {
-//       headers: {
-//         Authorization:
-//           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
-//       },
-//     });
-//     return response.data.data;
-//   } catch (error) {
-//     throw new Error(error);
-//   }
-// };
+dotenv.config();
 
-export async function getCategoryById(_id) {
+export async function getAllCategories() {
   try {
-    const response = await fetch(`${SERVER_URL}/categories/${_id}`, {
+    const response = await fetch(`${SERVER_URL}/categories`, {
+      // next: { : 10, tags: ["categories"] },
+      cache: "no-cache",
       headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
+        Authorization: process.env.BEARER_TOKEN,
+      },
+    });
+    if (!response.ok) {
+      throw new Error(`Server error: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(
+      "Response data from getValueById:",
+      JSON.stringify(data, null, 2)
+    );
+    // console.log(data);
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch or parse JSON:", error.message);
+    throw new Error(error.message);
+  }
+}
+
+export async function getValuesByCategoryId(categoryId) {
+  try {
+    const response = await fetch(`${SERVER_URL}/categories/${categoryId}`, {
+      headers: {
+        Authorization: process.env.BEARER_TOKEN,
       },
     });
     const data = await response.json();
+    // console.log("Response data:", data);
     return data;
   } catch (error) {
     throw new Error(error.message);
   }
 }
 
-export async function getAllCategories() {
+export async function getValueById(id) {
   try {
-    const response = await fetch(`${SERVER_URL}/categories`, {
+    const response = await fetch(`${SERVER_URL}/values/${id}`, {
+      headers: {
+        Authorization: process.env.BEARER_TOKEN,
+      },
+    });
+
+    // בדיקת סטטוס התגובה
+    if (!response.ok) {
+      throw new Error(`Server error: ${response.status}`);
+    }
+
+    // ניסיון לפענח את התגובה כ-JSON
+    const data = await response.json();
+    console.log(
+      "Response data from getValueById:",
+      JSON.stringify(data, null, 2)
+    );
+
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch or parse JSON:", error.message);
+    throw new Error(error.message);
+  }
+}
+
+// export async function getValueById(id) {
+//   try {
+//     const response = await fetch(`${SERVER_URL}/values/${id}`, {
+//       headers: {
+//         Authorization: process.env.BEARER_TOKEN,
+//       },
+//     });
+//     const data = await response.json();
+//     console.log("Response data from getValueById:", data);
+//     return data;
+//   } catch (error) {
+//     throw new Error(error.message);
+//   }
+// }
+
+export async function getAllValues() {
+  try {
+    const response = await fetch(`${SERVER_URL}/values`, {
       // next: { : 10, tags: ["categories"] },
       cache: "no-cache",
       headers: {
@@ -44,7 +193,7 @@ export async function getAllCategories() {
       },
     });
     const data = await response.json();
-    // console.log(data);
+    console.log("data1:", data);
     return data;
   } catch (error) {
     throw new Error(error.message);
@@ -59,53 +208,17 @@ export async function createNewCategory(categoryData) {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
+          Authorization: process.env.BEARER_TOKEN,
         },
       }
     );
-
     if (response.status !== 200) {
       const message = await response.text();
       throw new Error(message);
     }
-
     return { data: response.data, status: "success" };
   } catch (error) {
     console.error("Error creating new category:", error);
     throw error;
   }
 }
-//OLD VERSION
-// export async function createNewCategory(body) {
-//   try {
-//     const response = await axios.post(`${SERVER_URL}/categories`, body, {
-//       headers: {
-//         Authorization:
-//           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
-//       },
-//     });
-//     return response.data;
-//   } catch (error) {
-//     throw new Error(error);
-//   }
-// }
-
-//FROM NETEF- NEED TO MODIFY
-// export async function login(body) {
-//   try {
-//     const response = await axios.post(`${SERVER_URL}/users/login`, body);
-//     return response.data;
-//   } catch (error) {
-//     throw new Error(error);
-//   }
-// }
-
-// export async function register(body) {
-//   try {
-//     const response = await axios.post(`${SERVER_URL}/users/register`, body);
-//     return response.data;
-//   } catch (error) {
-//     throw new Error(error);
-//   }
-// }

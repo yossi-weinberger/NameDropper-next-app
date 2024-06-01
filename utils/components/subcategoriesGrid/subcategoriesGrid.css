@@ -1,0 +1,41 @@
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 30px auto;
+  width: 70%;
+  font-family: cursive;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.grid-item {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  padding: 25px;
+  border: 1.5px solid rgb(143, 0, 0);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 200ms ease;
+  background-color: aliceblue;
+}
+
+.grid-item:hover {
+  border: 2px solid rgb(143, 0, 0);
+  transition: 200ms ease;
+  height: 410px;
+}
+
+.grid-item h2 {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

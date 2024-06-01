@@ -1,19 +1,19 @@
 export function sortCategories(a, b, sortBy) {
   switch (sortBy) {
     case 0: {
-      if (a.title < b.title) {
+      if (a.name < b.name) {
         return -1;
       }
-      if (a.title > b.title) {
+      if (a.name > b.name) {
         return 1;
       }
       return 0;
     }
     case 1: {
-      if (a.title < b.title) {
+      if (a.name < b.name) {
         return 1;
       }
-      if (a.title > b.title) {
+      if (a.name > b.name) {
         return -1;
       }
       return 0;
