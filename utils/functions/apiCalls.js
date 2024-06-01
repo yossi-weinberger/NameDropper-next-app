@@ -109,19 +109,27 @@ export async function getAllCategories() {
         Authorization: process.env.BEARER_TOKEN,
       },
     });
+    if (!response.ok) {
+      throw new Error(`Server error: ${response.status}`);
+    }
     const data = await response.json();
+    console.log(
+      "Response data from getValueById:",
+      JSON.stringify(data, null, 2)
+    );
     // console.log(data);
     return data;
   } catch (error) {
+    console.error("Failed to fetch or parse JSON:", error.message);
     throw new Error(error.message);
   }
 }
+
 export async function getValuesByCategoryId(categoryId) {
   try {
     const response = await fetch(`${SERVER_URL}/categories/${categoryId}`, {
       headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWYxYmM0YTBkYzcwMTA3N2Y2NTAxNGYiLCJpYXQiOjE3MTA5MjcwOTB9.IZ4yEMeOqbHD3J8_XxGn6afXeU1XLyFqM8KVg5vbITE",
+        Authorization: process.env.BEARER_TOKEN,
       },
     });
     const data = await response.json();
