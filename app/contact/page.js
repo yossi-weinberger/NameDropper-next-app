@@ -1,3 +1,7 @@
+import Map from "@/utils/components/siteMap/siteMap"
+// import '@/utils/components/siteMap/siteMap.css';
 export default function Contact() {
-  return <div>Contact</div>;
+  return <div>
+    <Map/>
+  </div>;
 }

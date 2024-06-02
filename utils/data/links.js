@@ -21,7 +21,7 @@ export const links = [
     href: "/contact",
   },
   {
-    title: "New product",
+    title: "Login",
     href: "/new-category",
   },
   // {
