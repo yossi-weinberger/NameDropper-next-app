@@ -17,6 +17,7 @@
 }
 
 body {
+  padding-top: var(--nav-height);
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -35,7 +36,7 @@ body {
 * {
   margin: 0;
   padding: 0;
-  --nav-height: 80px;
+  --nav-height: 50px;
   text-decoration: none;
   /* box-sizing: border-box; */
 }

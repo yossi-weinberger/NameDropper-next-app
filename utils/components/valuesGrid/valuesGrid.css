@@ -15,20 +15,6 @@
   width: 100%;
 }
 
-/* .toolbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-} */
-
-/* .grid-container input {
-  height: 50px;
-  border-radius: 25px;
-  padding: 0 25px;
-} */
-
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -65,22 +51,6 @@
   transition: 200ms ease;
   /* border-radius: 10% 10% 0 0; */
 }
-
-/* grid-item img {
-  height: 3vh;
-  width: 3vh;
-  -o-object-fit: contain;
-  object-fit: contain;
-  transition: 200ms ease;
-  border-radius: 40%;
-}
-
-@media screen and (max-width: 600px) {
-  grid-item img {
-    height: 2vh;
-    width: 2vh;
-  }
-} */
 
 .grid-item img:hover {
   transition: 200ms ease;

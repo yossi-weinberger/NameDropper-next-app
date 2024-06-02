@@ -7,7 +7,6 @@ import SiteTitle from "@/utils/components/siteTitle/siteTitle";
 
 import { HeroSection } from "@/utils/components/hero-section/hero-section";
 
-
 const varela_Round = Varela_Round({ subsets: ["hebrew"], weight: "400" });
 
 export const metadata = {
@@ -19,8 +18,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={varela_Round.className}>
-        <SiteTitle />
         <Navbar />
+
         {children}
       </body>
     </html>
