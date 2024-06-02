@@ -1,12 +1,15 @@
 import ValuesPage from "@/utils/components/valuePage/valuePage";
-import { getValueById } from "@/utils/functions/apiCalls";
+import {
+  getValueByCategoryAndValueName,
+  getValueById,
+} from "@/utils/functions/apiCalls";
 
 export default async function ValuePage({ params }) {
-  const { id } = params;
+  const { categoryName, id } = params;
+  console.log(params);
 
   try {
-    const value = await getValueById(id);
-    console.log("Value data:", JSON.stringify(value, null, 2));
+    const value = await getValueByCategoryAndValueName(categoryName, id);
 
     if (!value || !value.data) {
       throw new Error("Invalid value data");
@@ -22,7 +25,6 @@ export default async function ValuePage({ params }) {
     return <div>Failed to load value</div>;
   }
 }
-
 // export default async function ValuePage({ params }) {
 //   const { id } = params;
 //   const value = await getValueById(id);

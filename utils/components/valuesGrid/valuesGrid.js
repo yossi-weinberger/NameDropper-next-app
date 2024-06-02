@@ -33,12 +33,20 @@ export default function ValuesGrid({ values }) {
 }
 
 function GridItem({ item }) {
-  if (!item || !item._id || !item.imageUrl || !item.name || !item.description) {
+  if (
+    !item ||
+    !item._id ||
+    !item.imageUrl ||
+    !item.name ||
+    !item.description ||
+    !item.category ||
+    !item.category.name
+  ) {
     return null;
   }
 
   return (
-    <Link href={`/categories/${item.category.name}/${item._id}`}>
+    <Link href={`/categories/${item.category.name}/${item.name}`}>
       <div className="grid-item">
         <img src={item.imageUrl} alt={item.name} />
         <div>
