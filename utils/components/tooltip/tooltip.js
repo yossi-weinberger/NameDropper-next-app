@@ -25,3 +25,20 @@ const Tooltip = ({ text, tooltip }) => {
 };
 
 export default Tooltip;
+
+
+
+
+// import Tooltip from './Tooltip';
+
+// const App = () => {
+//   const text = 'ריאקט היא ספריית <Tooltip text="ג\'אווה סקריפט" tooltip="ג\'אווה סקריפט היא שפת תכנות פופולרית">(Javascript)</Tooltip> פופולרית לפיתוח אתרים ואפליקציות. לריאקט גמישות רבה, עקב המבנה הפשוט אך היעיל שלה. ריאקט עצמה דלה יחסית, אך היא מאפשרת לבנות על גבה מרחב אינסופי של אפשרויות. ישנם ספריות וכלים רבים שמתממשקים היטב עם ריאקט ומאפשרים לפתח באמצעותה ביעילות וברמה גבוהה.';
+
+//   return (
+//     <div>
+//       <p dangerouslySetInnerHTML={{ __html: text }} />
+//     </div>
+//   );
+// };
+
+// export default App;

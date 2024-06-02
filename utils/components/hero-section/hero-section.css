@@ -1,7 +1,7 @@
 .heroSection {
   height: calc(100vh - var(--nav-height));
   width: 100%;
-  /* background-image: url("../../../public/pics/main.jpg"); */
+  /* background-image: url("../../../public/pics/5.jpg"); */
   background-color: black;
   background-size: contain;
   background-position: 50%;
@@ -57,4 +57,10 @@ h1 {
 
 p {
   margin: 15px;
+}
+
+.img{
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
 }
