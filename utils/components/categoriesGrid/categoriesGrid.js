@@ -55,8 +55,8 @@ export default function CategoriesGrid({ categories }) {
 }
 
 function GridItem({ item }) {
-  return item && item._id ? (
-    <Link href={`/categories/${item._id}`}>
+  return item && item.name ? (
+    <Link href={`/categories/${encodeURIComponent(item.name)}`}>
       <div className="grid-item">
         <img src={item.imageUrl} />
         <div>
