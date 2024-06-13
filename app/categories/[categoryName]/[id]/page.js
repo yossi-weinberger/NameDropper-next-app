@@ -6,10 +6,11 @@ import {
 
 export default async function ValuePage({ params }) {
   const { categoryName, id } = params;
-  console.log(params);
+  // console.log(params);
 
   try {
     const value = await getValueByCategoryAndValueName(categoryName, id);
+    
 
     if (!value || !value.data) {
       throw new Error("Invalid value data");

@@ -38,7 +38,12 @@ body {
   }
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
+  font-size: 1rem;
   padding-top: var(--nav-height);
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -47,6 +52,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+h1 {
+  font-size: 2rem;
 }
 
 /* @layer utilities {
