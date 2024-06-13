@@ -6,7 +6,7 @@ export default function SiteTitle() {
     <div className="background_title">
       <div className="title_logo">
         <Image
-          className="logo"
+          className="logo-title"
           width={100}
           height={100}
           src="/pics/round-logo.png"

@@ -2,9 +2,8 @@
 import { Varela_Round } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/utils/components/navbar/navbar";
-import { HeroSection } from "@/utils/components/hero-section/hero-section";
 import ThemeSwitcher from "@/utils/components/dark-mode/dark-mode";
-import { SessionProvider } from "next-auth/react"; // ייבא את SessionProvider
+import { SessionProvider } from "next-auth/react";
 
 const varela_Round = Varela_Round({ subsets: ["hebrew"], weight: "400" });
 
@@ -13,8 +12,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={varela_Round.className}>
         <SessionProvider>
-          {" "}
-          {/* עטוף את היישום ב-SessionProvider */}
           <Navbar />
           {/* <ThemeSwitcher /> */}
           {children}
