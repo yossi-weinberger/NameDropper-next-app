@@ -1,0 +1,22 @@
+.map-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tech-map {
+  width: 100vw;
+  /* height: 100vh; */
+}
+
+.tech-point {
+  cursor: pointer;
+  fill: red;
+}
+
+.tech-text {
+  font-size: 17px;
+  fill: white;
+}
