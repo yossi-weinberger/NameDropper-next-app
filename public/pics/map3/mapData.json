@@ -1,0 +1,39 @@
+{
+  "frontend": [
+    {
+      "name": "React",
+      "url": "/categories/Front-end/react",
+      "x": 400,
+      "y": 300
+    },
+    { "name": "Vue", "url": "/categories/Front-end/Vue.js", "x": 450, "y": 320 }
+  ],
+  "backend": [
+    {
+      "name": "Node.js",
+      "url": "/categories/Back-end/nodejs",
+      "x": 700,
+      "y": 200
+    },
+    {
+      "name": "Django",
+      "url": "/categories/Back-end/django",
+      "x": 750,
+      "y": 220
+    }
+  ],
+  "database": [
+    {
+      "name": "MongoDB",
+      "url": "/categories/Data-base/mongodb",
+      "x": 800,
+      "y": 500
+    },
+    {
+      "name": "PostgreSQL",
+      "url": "/categories/Data-base/postgresql",
+      "x": 850,
+      "y": 520
+    }
+  ]
+}
